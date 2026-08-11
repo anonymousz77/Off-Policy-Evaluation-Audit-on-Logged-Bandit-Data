@@ -60,23 +60,6 @@ Results come out of three calls. `summarize_estimators_comparison(ground_truth_p
 
 The current run covers four estimators. The upstream library implements more that belong in this comparison and that I have not yet added: `SwitchDoublyRobust` and `DoublyRobustWithShrinkage` (`obp/ope/estimators.py`), `SelfNormalizedDoublyRobust`, and the hyperparameter-tuned variants in `obp/ope/estimators_tuning.py` — `SwitchDoublyRobustTuning`, `DoublyRobustWithShrinkageTuning`. Adding one is a line in the `ope_estimators` list; the tuned variants additionally take a candidate list for the threshold or shrinkage parameter, which is the honest way to handle a knob you cannot set a priori.
 
-## Repo layout
-
-| Path | Origin | What it is |
-| --- | --- | --- |
-| `audit/` | **mine** | The audit script and its output |
-| `requirements-working.txt` | **mine** | Pinned versions of the environment the audit runs in |
-| `README.md` | **mine** | This file |
-| `obp/` | upstream | Open Bandit Pipeline v0.5.5 — datasets, policies, OPE estimators |
-| `obd/` | upstream | Open Bandit Dataset, 10k-record sample per campaign/policy pair |
-| `tests/` | upstream | OBP's test suite |
-| `examples/` | upstream | OBP quickstart notebooks and example scripts |
-| `benchmark/` | upstream | OBP's own benchmark harness |
-| `docs/`, `slides/`, `images/` | upstream | OBP documentation and figures |
-| `README_JN.md`, `CONTRIBUTING.md`, `LICENSE` | upstream | OBP project files |
-
-I have not modified anything under `obp/`, `obd/`, or `tests/`. The audit imports the library; it does not patch it.
-
 ## Reproducing
 
 Python 3.11.
